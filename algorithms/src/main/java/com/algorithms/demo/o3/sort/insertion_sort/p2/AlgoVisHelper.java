@@ -1,12 +1,10 @@
-package com.algorithms.demo.o2.probability.p2;
+package com.algorithms.demo.o3.sort.insertion_sort.p2;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.Ellipse2D;
-import java.awt.geom.GeneralPath;
-import java.awt.geom.Line2D;
-import java.awt.geom.Rectangle2D;
-import java.lang.InterruptedException;
+import java.awt.geom.*;
 
+import java.lang.InterruptedException;
 
 public class AlgoVisHelper {
 
@@ -33,7 +31,6 @@ public class AlgoVisHelper {
     public static final Color BlueGrey = new Color(0x607D8B);
     public static final Color Black = new Color(0x000000);
     public static final Color White = new Color(0xFFFFFF);
-
 
     public static void strokeCircle(Graphics2D g, int x, int y, int r){
 
@@ -95,5 +92,4 @@ public class AlgoVisHelper {
         int h = metrics.getDescent();
         g.drawString(text, centerx - w/2, centery + h);
     }
-
 }

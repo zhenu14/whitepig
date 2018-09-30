@@ -1,12 +1,10 @@
-package com.algorithms.demo.o2.probability.p2;
-import javax.swing.*;
+package com.algorithms.demo.o3.sort.selection_sort.p1;
+
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
-import java.awt.geom.GeneralPath;
-import java.awt.geom.Line2D;
+
 import java.awt.geom.Rectangle2D;
 import java.lang.InterruptedException;
-
 
 public class AlgoVisHelper {
 
@@ -33,7 +31,6 @@ public class AlgoVisHelper {
     public static final Color BlueGrey = new Color(0x607D8B);
     public static final Color Black = new Color(0x000000);
     public static final Color White = new Color(0xFFFFFF);
-
 
     public static void strokeCircle(Graphics2D g, int x, int y, int r){
 
@@ -75,25 +72,6 @@ public class AlgoVisHelper {
         catch (InterruptedException e) {
             System.out.println("Error sleeping");
         }
-    }
-
-    public static void putImage(Graphics2D g, int x, int y, String imageURL){
-
-        ImageIcon icon = new ImageIcon(imageURL);
-        Image image = icon.getImage();
-
-        g.drawImage(image, x, y, null);
-    }
-
-    public static void drawText(Graphics2D g, String text, int centerx, int centery){
-
-        if(text == null)
-            throw new IllegalArgumentException("Text is null in drawText function!");
-
-        FontMetrics metrics = g.getFontMetrics();
-        int w = metrics.stringWidth(text);
-        int h = metrics.getDescent();
-        g.drawString(text, centerx - w/2, centery + h);
     }
 
 }

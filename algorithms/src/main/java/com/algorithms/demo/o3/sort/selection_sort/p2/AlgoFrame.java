@@ -1,6 +1,6 @@
-package com.algorithms.demo.o2.probability.p2;
+package com.algorithms.demo.o3.sort.selection_sort.p2;
+
 import java.awt.*;
-import java.util.LinkedList;
 import javax.swing.*;
 
 public class AlgoFrame extends JFrame{
@@ -34,8 +34,8 @@ public class AlgoFrame extends JFrame{
     public int getCanvasHeight(){return canvasHeight;}
 
     // data
-    private MonteCarloPiData data;
-    public void render(MonteCarloPiData data){
+    private SelectionSortData data;
+    public void render(SelectionSortData data){
         this.data = data;
         repaint();
     }
@@ -61,19 +61,18 @@ public class AlgoFrame extends JFrame{
             g2d.addRenderingHints(hints);
 
             // 具体绘制
-            AlgoVisHelper.setStrokeWidth(g2d, 3);
-            AlgoVisHelper.setColor(g2d, AlgoVisHelper.Blue);
-            Circle circle = data.getCircle();
-            AlgoVisHelper.strokeCircle(g2d, circle.getX(), circle.getY(), circle.getR());
-
-            for(int i = 0 ; i < data.getPointsNumber() ; i ++){
-                Point p = data.getPoint(i);
-                if(circle.contain(p))
+            int w = canvasWidth/data.N();
+            for(int i = 0 ; i < data.N() ; i ++ ) {
+                if (i < data.orderedIndex)
                     AlgoVisHelper.setColor(g2d, AlgoVisHelper.Red);
                 else
-                    AlgoVisHelper.setColor(g2d, AlgoVisHelper.Green);
+                    AlgoVisHelper.setColor(g2d, AlgoVisHelper.Grey);
 
-                AlgoVisHelper.fillCircle(g2d, p.x, p.y, 3);
+                if(i == data.currentCompareIndex)
+                    AlgoVisHelper.setColor(g2d, AlgoVisHelper.LightBlue);
+                if(i == data.currentMinIndex)
+                    AlgoVisHelper.setColor(g2d, AlgoVisHelper.Indigo);
+                AlgoVisHelper.fillRectangle(g2d, i * w, canvasHeight - data.get(i), w - 1, data.get(i));
             }
         }
 
